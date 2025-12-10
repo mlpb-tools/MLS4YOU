@@ -224,6 +224,39 @@
             font-size: 1.1rem;
         }
 
+        .centered-section {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .centered-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .centered-section h3 {
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem;
+        }
+
+        .centered-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .centered-section .cta-button {
+            display: inline-block;
+            margin: 2rem auto 1rem;
+        }
+
+        .centered-section .axis-grid {
+            margin-top: 3rem;
+        }
+
         /* Steps Grid */
         .steps-grid {
             display: grid;
@@ -245,6 +278,50 @@
             transform: translateY(-5px);
             border-color: #FF007F;
             box-shadow: 0 8px 25px rgba(255, 0, 127, 0.2);
+        }
+
+        .clickable-card {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .clickable-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #8A2BE2;
+            box-shadow: 0 12px 35px rgba(138, 43, 226, 0.3);
+        }
+
+        .clickable-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.15), transparent);
+            transition: left 0.5s;
+        }
+
+        .clickable-card:hover::before {
+            left: 100%;
+        }
+
+        .card-arrow {
+            position: absolute;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #8A2BE2;
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .clickable-card:hover .card-arrow {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .step-icon {
@@ -270,22 +347,6 @@
         .step-card p {
             font-size: 1rem;
             color: #666;
-        }
-
-        /* Principles List */
-        .principles-list {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .principles-list li {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            color: #555;
         }
 
         /* Axis Grid */
@@ -586,6 +647,131 @@
             box-shadow: 0 12px 35px rgba(138, 43, 226, 0.6);
         }
 
+        /* Access Modal */
+        .access-modal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            padding: 2rem;
+        }
+
+        .access-modal-content {
+            background: white;
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+
+        .access-modal-content::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FFA500 100%);
+            border-radius: 30px;
+            z-index: -1;
+        }
+
+        .access-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            animation: lockPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes lockPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .access-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #D32F2F;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .access-description {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .access-input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .access-input {
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .access-input:focus {
+            outline: none;
+            border-color: #8A2BE2;
+            box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.1);
+        }
+
+        .access-button {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(76, 175, 80, 0.6);
+        }
+
+        .access-error {
+            color: #D32F2F;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background: #FFEBEE;
+            border-radius: 10px;
+        }
+
+        .access-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .access-info small {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
         /* Mini Games Grid */
         .mini-games-grid {
             display: grid;
@@ -833,6 +1019,63 @@
             .platform-icon {
                 font-size: 3rem;
             }
+
+            .access-modal {
+                min-height: 400px;
+                padding: 1.5rem;
+            }
+
+            .access-modal-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .access-icon {
+                font-size: 4rem;
+            }
+
+            .access-title {
+                font-size: 2rem;
+            }
+
+            .access-description {
+                font-size: 1rem;
+            }
+
+            .access-input {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            .access-button {
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
+            }
+
+            .card-arrow {
+                font-size: 1.5rem;
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .clickable-card {
+                padding: 1.5rem;
+            }
+
+            .step-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .centered-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .centered-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .centered-section p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -878,29 +1121,33 @@
             <div class="section">
                 <h2>🗺️ Le Parcours LS4YOU en 4 Étapes</h2>
                 <div class="steps-grid">
-                    <div class="step-card">
+                    <div class="step-card clickable-card" onclick="navigateToTab('competences')">
                         <div class="step-icon">🧭</div>
                         <div class="step-number">1. JE DÉCOUVRE</div>
                         <h4>LS4YOU – Parcours & Compétences</h4>
                         <p><strong>Objectif :</strong> Comprendre de quoi on parle</p>
+                        <div class="card-arrow">→</div>
                     </div>
-                    <div class="step-card">
+                    <div class="step-card clickable-card" onclick="navigateToTab('autotest')">
                         <div class="step-icon">🎯</div>
                         <div class="step-number">2. JE ME SITUE</div>
                         <h4>DIAG4U – Auto-positionnement</h4>
                         <p><strong>Objectif :</strong> Savoir où j'en suis aujourd'hui</p>
+                        <div class="card-arrow">→</div>
                     </div>
-                    <div class="step-card">
+                    <div class="step-card clickable-card" onclick="navigateToTab('miniparcours')">
                         <div class="step-icon">🧩</div>
                         <div class="step-number">3. JE M'APPROPRIE</div>
                         <h4>Mini-Parcours – Mini-activités</h4>
                         <p><strong>Objectif :</strong> Comprendre comment ça me concerne</p>
+                        <div class="card-arrow">→</div>
                     </div>
-                    <div class="step-card">
+                    <div class="step-card clickable-card" onclick="navigateToTab('ateliers')">
                         <div class="step-icon">🧑‍🤝‍🧑</div>
                         <div class="step-number">4. JE PRATIQUE</div>
                         <h4>Ateliers collectifs Mission Locale</h4>
                         <p><strong>Objectif :</strong> Mettre en pratique avec d'autres</p>
+                        <div class="card-arrow">→</div>
                     </div>
                 </div>
             </div>
@@ -910,18 +1157,7 @@
     <!-- TAB: COMPÉTENCES -->
     <div id="competences" class="tab-content">
         <div class="container">
-            <div class="section">
-                <h2>💡 Principes clés de l'accompagnement Life Skills</h2>
-                <ul class="principles-list">
-                    <li>✓ <strong>Approche globale :</strong> Le jeune n'est pas seulement "sans CV" - il traverse des domaines de vie complexes</li>
-                    <li>✓ <strong>Pas de notation :</strong> Les Life Skills ne sont pas des cases à cocher, mais des capacités en construction</li>
-                    <li>✓ <strong>Progressivité :</strong> On travaille 1-2 axes prioritaires à la fois, sans surcharge</li>
-                    <li>✓ <strong>Valorisation :</strong> Célébrer les petits progrès avant de viser de grands changements</li>
-                    <li>✓ <strong>Participation active :</strong> Le jeune est acteur de son auto-test et de son parcours</li>
-                </ul>
-            </div>
-
-            <div class="section">
+            <div class="section centered-section">
                 <h2>✨ Les 4 Axes Life Skills</h2>
                 <p>Découvre les compétences psychosociales à travers un jeu de cartes interactif</p>
                 
@@ -1171,6 +1407,28 @@
 
     <!-- TAB: ATELIERS COLLECTIFS -->
     <div id="ateliers" class="tab-content">
+        <!-- Modal de vérification du code d'accès -->
+        <div id="access-modal" class="access-modal">
+            <div class="access-modal-content">
+                <div class="access-icon">🔒</div>
+                <h2 class="access-title">Accès Conseillers</h2>
+                <p class="access-description">Cette section est réservée aux conseillers Mission Locale. Veuillez entrer le code d'accès pour continuer.</p>
+                
+                <div class="access-input-group">
+                    <input type="password" id="access-code" class="access-input" placeholder="Code d'accès" maxlength="6">
+                    <button onclick="verifyAccessCode()" class="access-button">🔓 Déverrouiller</button>
+                </div>
+                
+                <p id="access-error" class="access-error" style="display: none;">❌ Code incorrect. Veuillez réessayer.</p>
+                
+                <div class="access-info">
+                    <small>💡 Si vous n'avez pas le code, contactez votre responsable.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu protégé -->
+        <div id="ateliers-content" style="display: none;">
         <div class="container">
             <div class="section">
                 <h2>🧑‍🤝‍🧑 Ateliers Collectifs</h2>
@@ -1200,6 +1458,8 @@
                 </ul>
             </div>
         </div>
+        </div>
+        <!-- Fin du contenu protégé -->
     </div>
 
     <!-- Footer -->
@@ -1223,7 +1483,38 @@
             document.getElementById(tabName).classList.add('active');
 
             // Add active to clicked pill
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateToTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active from all pills
+            const pills = document.querySelectorAll('.pill');
+            pills.forEach(pill => pill.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active to corresponding pill
+            const pillNames = {
+                'accueil': 0,
+                'competences': 1,
+                'autotest': 2,
+                'miniparcours': 3,
+                'ateliers': 4
+            };
+            const pillIndex = pillNames[tabName];
+            if (pillIndex !== undefined) {
+                pills[pillIndex].classList.add('active');
+            }
 
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1233,6 +1524,69 @@
             // Ouvrir le jeu dans un nouvel onglet
             window.open(gameUrl, '_blank');
         }
+
+        // Système de vérification du code d'accès
+        const ACCESS_CODE = 'MLPB24'; // Code d'accès pour les conseillers
+        const ACCESS_KEY = 'mlsAtelier sAccess';
+
+        // Vérifier si l'accès a déjà été accordé
+        window.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem(ACCESS_KEY) === 'granted') {
+                unlockAteliersContent();
+            }
+        });
+
+        function verifyAccessCode() {
+            const inputCode = document.getElementById('access-code').value.toUpperCase();
+            const errorElement = document.getElementById('access-error');
+            
+            if (inputCode === ACCESS_CODE) {
+                // Code correct
+                localStorage.setItem(ACCESS_KEY, 'granted');
+                unlockAteliersContent();
+                errorElement.style.display = 'none';
+            } else {
+                // Code incorrect
+                errorElement.style.display = 'block';
+                document.getElementById('access-code').value = '';
+                document.getElementById('access-code').focus();
+                
+                // Faire trembler la modal
+                const modal = document.querySelector('.access-modal-content');
+                modal.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    modal.style.animation = '';
+                }, 500);
+            }
+        }
+
+        function unlockAteliersContent() {
+            document.getElementById('access-modal').style.display = 'none';
+            document.getElementById('ateliers-content').style.display = 'block';
+        }
+
+        // Permettre la validation avec la touche Entrée
+        document.addEventListener('DOMContentLoaded', function() {
+            const accessInput = document.getElementById('access-code');
+            if (accessInput) {
+                accessInput.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        verifyAccessCode();
+                    }
+                });
+            }
+        });
+
+        // Animation de tremblement pour erreur
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+                20%, 40%, 60%, 80% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
