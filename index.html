@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcours Life Skills - 18 Activités</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>MLS4YOU - Guide Pédagogique LS4YOU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,916 +15,904 @@
         }
 
         body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: #FFFFFF;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-ml {
+            height: 60px;
+        }
+
+        .logo-lifeskills {
+            height: 55px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: #E3F2FD;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #2196F3;
+            cursor: pointer;
+        }
+
+        /* Navigation Pills */
+        .nav-pills {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pill {
+            padding: 0.9rem 2rem;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .pill.active {
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF007F 100%);
+            color: white;
+            border-color: #8A2BE2;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section - Page d'accueil */
+        .title-section {
+            background: white;
+            padding: 2rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .title-mls4you {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #D32F2F;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
             font-family: 'Poppins', sans-serif;
+        }
+
+        .subtitle-platform {
+            font-size: 1.4rem;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF007F 100%);
+            padding: 4rem 2rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .badge-minigames {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title-highlight {
+            background: #FDD835;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: underline;
+            text-decoration-color: #FDD835;
+            text-decoration-thickness: 4px;
+            text-underline-offset: 8px;
+            font-weight: 700;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #D32F2F;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .section h3 {
+            color: #8A2BE2;
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+
+        .section p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* Steps Grid */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            border-color: #FF007F;
+            box-shadow: 0 8px 25px rgba(255, 0, 127, 0.2);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            font-size: 0.9rem;
+            color: #8A2BE2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .step-card h4 {
+            color: #D32F2F;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Principles List */
+        .principles-list {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .principles-list li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Axis Grid */
+        .axis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .axis-card {
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .axis-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+        }
+
+        .axis-personnalite {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .axis-valorisation {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .axis-equilibre {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .axis-ressources {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF007F 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #E3F2FD;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .info-box strong {
+            color: #D32F2F;
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .benefits-list li {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Mini Games Grid */
+        .mini-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .game-card {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF007F 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+
+        .game-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #FF007F;
+            box-shadow: 0 12px 30px rgba(255, 0, 127, 0.3);
+        }
+
+        .game-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-card h4 {
+            color: #D32F2F;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .game-theme {
+            color: #8A2BE2;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .game-description {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        }
-
-        /* En-tête principal */
-        .main-header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
+        .game-badge {
+            display: inline-block;
             color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        .main-header h1 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 42px;
+        .game-badge-equilibre {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .game-badge-ressources {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .game-badge-valorisation {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .game-badge-personnalite {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .game-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #8A2BE2 0%, #FF007F 100%);
+            color: white;
+            border: none;
+            border-radius: 30px;
             font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .main-header p {
-            font-size: 18px;
+        .game-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.5);
+        }
+
+        .add-game-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 3px dashed #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-game-card h4 {
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .add-game-card p {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+
+        .footer-logo {
+            max-width: 300px;
+            margin: 2rem auto;
+        }
+
+        .footer p {
+            color: #666;
             line-height: 1.8;
             max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* En-têtes des axes */
-        .axe-header-section {
-            padding: 40px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            margin-top: 60px;
-            border-left: 6px solid;
-        }
-
-        .axe-header-section.axe-1 {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(102, 126, 234, 0.03) 100%);
-            border-left-color: #667eea;
-        }
-
-        .axe-header-section.axe-2 {
-            background: linear-gradient(135deg, rgba(93, 184, 125, 0.15) 0%, rgba(93, 184, 125, 0.03) 100%);
-            border-left-color: #5DB87D;
-        }
-
-        .axe-header-section.axe-3 {
-            background: linear-gradient(135deg, rgba(239, 83, 80, 0.15) 0%, rgba(239, 83, 80, 0.03) 100%);
-            border-left-color: #EF5350;
-        }
-
-        .axe-header-section.axe-4 {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.03) 100%);
-            border-left-color: #FFC107;
-        }
-
-        .axe-header-title {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .axe-icon-large {
-            font-size: 48px;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
-        }
-
-        .axe-header-title span {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            color: #333;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .axe-description {
-            font-size: 18px;
-            color: #555;
-            line-height: 1.8;
-            margin-left: 68px;
-        }
-
-        /* Cartes d'activité */
-        .activity-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-            border-left: 6px solid;
-            transition: all 0.3s ease;
-        }
-
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-        }
-
-        .activity-card.axe-1 {
-            border-left-color: #667eea;
-        }
-
-        .activity-card.axe-2 {
-            border-left-color: #5DB87D;
-        }
-
-        .activity-card.axe-3 {
-            border-left-color: #EF5350;
-        }
-
-        .activity-card.axe-4 {
-            border-left-color: #FFC107;
-        }
-
-        .activity-title {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .activity-number {
-            color: white;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .axe-1 .activity-number {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-        }
-
-        .axe-2 .activity-number {
-            background: linear-gradient(135deg, #5DB87D 0%, #4CAF50 100%);
-            box-shadow: 0 4px 12px rgba(93, 184, 125, 0.4);
-        }
-
-        .axe-3 .activity-number {
-            background: linear-gradient(135deg, #EF5350 0%, #E91E63 100%);
-            box-shadow: 0 4px 12px rgba(239, 83, 80, 0.4);
-        }
-
-        .axe-4 .activity-number {
-            background: linear-gradient(135deg, #FFC107 0%, #FFD54F 100%);
-            box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-        }
-
-        .activity-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .meta-badge {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #495057;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid #dee2e6;
-        }
-
-        .activity-description {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid;
-        }
-
-        .axe-1 .activity-description {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(102, 126, 234, 0.02) 100%);
-            border-left-color: #667eea;
-        }
-
-        .axe-2 .activity-description {
-            background: linear-gradient(135deg, rgba(93, 184, 125, 0.08) 0%, rgba(93, 184, 125, 0.02) 100%);
-            border-left-color: #5DB87D;
-        }
-
-        .axe-3 .activity-description {
-            background: linear-gradient(135deg, rgba(239, 83, 80, 0.08) 0%, rgba(239, 83, 80, 0.02) 100%);
-            border-left-color: #EF5350;
-        }
-
-        .axe-4 .activity-description {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.08) 0%, rgba(255, 193, 7, 0.02) 100%);
-            border-left-color: #FFC107;
-        }
-
-        .activity-steps {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-        }
-
-        .activity-steps h4 {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 18px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .axe-1 .activity-steps h4 {
-            color: #667eea;
-        }
-
-        .axe-2 .activity-steps h4 {
-            color: #5DB87D;
-        }
-
-        .axe-3 .activity-steps h4 {
-            color: #EF5350;
-        }
-
-        .axe-4 .activity-steps h4 {
-            color: #FFC107;
-        }
-
-        .activity-steps ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .activity-steps li {
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-            color: #444;
-            line-height: 1.7;
-        }
-
-        .activity-steps li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            font-size: 18px;
-        }
-
-        .axe-1 .activity-steps li:before {
-            color: #667eea;
-        }
-
-        .axe-2 .activity-steps li:before {
-            color: #5DB87D;
-        }
-
-        .axe-3 .activity-steps li:before {
-            color: #EF5350;
-        }
-
-        .axe-4 .activity-steps li:before {
-            color: #FFC107;
-        }
-
-        /* Note finale */
-        .final-note {
-            background: linear-gradient(135deg, rgba(167, 232, 189, 0.15) 0%, rgba(167, 232, 189, 0.03) 100%);
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 50px;
-            border: 3px solid #A7E8BD;
-        }
-
-        .final-note h3 {
-            font-size: 24px;
-            font-weight: 700;
-            font-family: 'Fredoka', sans-serif;
-            color: #5DB87D;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .final-note p {
-            margin-bottom: 15px;
-            color: #333;
-        }
-
-        .final-note ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .final-note li {
-            padding: 8px 0;
-            display: flex;
-            align-items: start;
-            gap: 12px;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .final-note li span:first-child {
-            color: #5DB87D;
-            font-weight: 700;
-            flex-shrink: 0;
+            margin: 1rem auto;
+            font-size: 0.95rem;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+            .hero-title {
+                font-size: 2.5rem;
             }
 
-            .main-header h1 {
-                font-size: 28px;
+            .title-mls4you {
+                font-size: 3rem;
             }
 
-            .main-header p {
-                font-size: 16px;
-            }
-
-            .axe-header-title {
+            .nav-pills {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+                align-items: stretch;
+                padding: 1rem;
             }
 
-            .axe-header-title span {
-                font-size: 24px;
+            .pill {
+                width: 100%;
+                text-align: center;
             }
 
-            .axe-description {
-                margin-left: 0;
+            .section {
+                padding: 2rem 1.5rem;
             }
 
-            .activity-card {
-                padding: 20px;
-            }
-
-            .activity-title {
-                font-size: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .meta-badge {
-                font-size: 12px;
-                padding: 6px 12px;
+            .section h2 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- En-tête principal -->
-        <div class="main-header">
-            <h1>📚 Guide des 18 Activités Life Skills</h1>
-            <p>Ce guide présente <strong>18 activités pédagogiques</strong> structurées autour des <strong>4 axes Life Skills</strong>. Chaque activité est conçue pour être adaptable selon le profil du jeune, en individuel ou en collectif. Les activités peuvent être mobilisées de manière autonome ou combinées dans un parcours progressif.</p>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <img src="https://static.wixstatic.com/media/dd5dab_47743b1c86024865ba19e623a3db327f~mv2.avif/v1/fill/w_224,h_60,al_c,q_80,enc_avif,quality_auto/dd5dab_47743b1c86024865ba19e623a3db327f~mv2.avif" alt="Mission Locale Pays Basque" class="logo-ml">
+            <img src="https://www.lifeskills4you.eu/wp-content/uploads/2024/07/LS4YOU_Logo.png" alt="Life Skills" class="logo-lifeskills">
+        </div>
+        <div class="info-icon">❓</div>
+    </div>
+
+    <!-- Navigation Pills -->
+    <div class="nav-pills">
+        <div class="pill active" onclick="showTab('accueil')">
+            ACCUEIL
+        </div>
+        <div class="pill" onclick="showTab('competences')">
+            1. COMPÉTENCES
+        </div>
+        <div class="pill" onclick="showTab('autotest')">
+            2. AUTOTEST
+        </div>
+        <div class="pill" onclick="showTab('miniparcours')">
+            3. MINIPARCOURS
+        </div>
+        <div class="pill" onclick="showTab('ateliers')">
+            4. ATELIERS COLLECTIFS
+        </div>
+    </div>
+
+    <!-- TAB: ACCUEIL -->
+    <div id="accueil" class="tab-content active">
+        <div class="title-section">
+            <h1 class="title-mls4you">MLS4YOU</h1>
+            <p class="subtitle-platform">Plateforme d'Évaluation des Compétences</p>
         </div>
 
-        <!-- ========================================
-             AXE 1: PERSONNALITÉ
-        ======================================== -->
-        <div class="axe-header-section axe-1">
-            <div class="axe-header-title">
-                <div class="axe-icon-large">🧠</div>
-                <span>AXE 1 – PERSONNALITÉ</span>
+        <div class="hero-gradient">
+            <div class="badge-minigames">
+                🚀 11 Mini-Jeux Interactifs
             </div>
-            <p class="axe-description">Comprendre qui je suis, comment je fonctionne, et comment je prends mes décisions pour mieux m'orienter et interagir avec les autres.</p>
+            <h1 class="hero-title">
+                Évalue et développe tes <span class="hero-title-highlight">compétences</span> par domaine !
+            </h1>
         </div>
 
-        <!-- Activité 1 -->
-        <div class="activity-card axe-1">
-            <div class="activity-title">
-                <span class="activity-number">1</span>
-                Test des 16 personnalités (MBTI)
+        <div class="container">
+            <div class="section">
+                <h2>🗺️ Le Parcours LS4YOU en 4 Étapes</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">🧭</div>
+                        <div class="step-number">1. JE DÉCOUVRE</div>
+                        <h4>LS4YOU – Parcours & Compétences</h4>
+                        <p><strong>Objectif :</strong> Comprendre de quoi on parle</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">🎯</div>
+                        <div class="step-number">2. JE ME SITUE</div>
+                        <h4>DIAG4U – Auto-positionnement</h4>
+                        <p><strong>Objectif :</strong> Savoir où j'en suis aujourd'hui</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">🧩</div>
+                        <div class="step-number">3. JE M'APPROPRIE</div>
+                        <h4>Mini-Parcours – Micro-activités</h4>
+                        <p><strong>Objectif :</strong> Comprendre comment ça me concerne</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">🧑‍🤝‍🧑</div>
+                        <div class="step-number">4. JE PRATIQUE</div>
+                        <h4>Ateliers collectifs Mission Locale</h4>
+                        <p><strong>Objectif :</strong> Mettre en pratique avec d'autres</p>
+                    </div>
+                </div>
             </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🎯 Connaissance de soi</span>
-                <span class="meta-badge">🧩 Métacognition</span>
-                <span class="meta-badge">💬 Empathie structurée</span>
-            </div>
-            <div class="activity-description">
-                Comprendre son fonctionnement psychologique pour mieux choisir et interagir avec les autres.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Présentation du test et de son utilité (différences de profils)</li>
-                    <li>Passation en ligne du test (16personalities.com ou équivalent)</li>
-                    <li>Débrief collectif : partage des profils, discussion sur les forces de chacun</li>
-                    <li>Mini-activités sur les différences (ex : comment réagit chaque profil face à un conflit ?)</li>
+        </div>
+    </div>
+
+    <!-- TAB: COMPÉTENCES -->
+    <div id="competences" class="tab-content">
+        <div class="container">
+            <div class="section">
+                <h2>💡 Principes clés de l'accompagnement Life Skills</h2>
+                <ul class="principles-list">
+                    <li>✓ <strong>Approche globale :</strong> Le jeune n'est pas seulement "sans CV" - il traverse des domaines de vie complexes</li>
+                    <li>✓ <strong>Pas de notation :</strong> Les Life Skills ne sont pas des cases à cocher, mais des capacités en construction</li>
+                    <li>✓ <strong>Progressivité :</strong> On travaille 1-2 axes prioritaires à la fois, sans surcharge</li>
+                    <li>✓ <strong>Valorisation :</strong> Célébrer les petits progrès avant de viser de grands changements</li>
+                    <li>✓ <strong>Participation active :</strong> Le jeune est acteur de son diagnostic et de son parcours</li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Activité 2 -->
-        <div class="activity-card axe-1">
-            <div class="activity-title">
-                <span class="activity-number">2</span>
-                Forces et défis
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">✅ Identification forces/faiblesses</span>
-                <span class="meta-badge">📊 Auto-évaluation réaliste</span>
-                <span class="meta-badge">📈 Micro-progrès</span>
-            </div>
-            <div class="activity-description">
-                Distinguer "je suis nul" de "j'ai un axe à travailler" et planifier une petite marche vers l'avant.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Réflexion individuelle guidée : lister 3 forces et 3 défis</li>
-                    <li>Partage en binôme ou en petit groupe (facultatif)</li>
-                    <li>Choix d'un axe prioritaire à travailler</li>
-                    <li>Plan d'action simple : 1 objectif concret et 2-3 étapes réalistes</li>
-                </ul>
-            </div>
-        </div>
+            <div class="section">
+                <h2>✨ Les 4 Axes Life Skills</h2>
+                <p>Découvre les compétences psychosociales à travers un jeu de cartes interactif</p>
+                
+                <h3>🔧 Outil Interactif : Découvrir les 4 Axes</h3>
+                <p>Explorez les 4 axes Life Skills de manière interactive et découvrez en détail chaque compétence psychosociale avec notre outil dédié.</p>
+                <a href="https://mlpb-tools.github.io/4Axes4U" target="_blank" class="cta-button">🚀 Accéder à l'outil des 4 Axes</a>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">L'outil s'ouvrira dans un nouvel onglet</p>
 
-        <!-- Activité 3 -->
-        <div class="activity-card axe-1">
-            <div class="activity-title">
-                <span class="activity-number">3</span>
-                Besoins, valeurs, objectifs de vie
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">💎 Clarification valeurs</span>
-                <span class="meta-badge">🔮 Projection 1-5-10 ans</span>
-                <span class="meta-badge">🎯 Priorisation</span>
-            </div>
-            <div class="activity-description">
-                Donner du sens à ses choix de vie et à son projet en identifiant ce qui compte vraiment.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Tri de valeurs (cartes ou liste) : identifier les 5 valeurs les plus importantes</li>
-                    <li>Réflexion guidée : "Dans 1 an, 5 ans, 10 ans, qu'est-ce qui sera important pour moi ?"</li>
-                    <li>Connexion valeurs/projet : comment mon projet respecte-t-il mes valeurs ?</li>
-                    <li>Mini feuille de route personnalisée</li>
-                </ul>
+                <div class="axis-grid">
+                    <div class="axis-card axis-personnalite">
+                        🧠 Personnalité
+                    </div>
+                    <div class="axis-card axis-valorisation">
+                        🌟 Valorisation
+                    </div>
+                    <div class="axis-card axis-equilibre">
+                        🤝 Bien-être
+                    </div>
+                    <div class="axis-card axis-ressources">
+                        💰 Ressources
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Activité 4 -->
-        <div class="activity-card axe-1">
-            <div class="activity-title">
-                <span class="activity-number">4</span>
-                Mindmapping « Faites le point »
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🗺️ Vision globale</span>
-                <span class="meta-badge">🔍 Repérage ressources/obstacles</span>
-                <span class="meta-badge">⚡ Décision priorisée</span>
-            </div>
-            <div class="activity-description">
-                Cartographier sa situation actuelle pour choisir 1 à 2 axes d'action prioritaires.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Création individuelle d'une carte mentale : "Moi au centre" avec branches (emploi, logement, santé, relations...)</li>
-                    <li>Identification des ressources (ce qui aide) et des obstacles (ce qui bloque)</li>
-                    <li>Mise en commun en petit groupe</li>
-                    <li>Choix collectif ou individuel de 1-2 priorités à travailler</li>
-                </ul>
+    <!-- TAB: AUTOTEST -->
+    <div id="autotest" class="tab-content">
+        <div class="container">
+            <div class="section">
+                <h2>📋 Diagnostic Life Skills</h2>
+                <p>Évaluer les compétences psychosociales du jeune pour construire un parcours adapté</p>
+
+                <h3>🎯 Objectif du diagnostic</h3>
+                <p>Le diagnostic Life Skills permet d'<strong>identifier les axes prioritaires</strong> à travailler avec le jeune. Il ne s'agit pas de noter ou de juger, mais de <strong>comprendre où le jeune en est</strong> et de <strong>co-construire un parcours</strong> d'accompagnement adapté.</p>
+                
+                <div class="info-box">
+                    <strong>Important :</strong> Ce diagnostic se fait <strong>avec le jeune</strong>, pas sur lui. C'est un moment d'échange et de co-réflexion.
+                </div>
+
+                <h3>🔧 Outil de Diagnostic Interactif</h3>
+                <p>Utilisez l'outil de diagnostic interactif pour évaluer les compétences psychosociales du jeune sur les 4 axes Life Skills.</p>
+                <a href="https://mlpb-tools.github.io/DIAG4U/" target="_blank" class="cta-button">🚀 Accéder à l'outil de diagnostic</a>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">L'outil s'ouvrira dans un nouvel onglet</p>
             </div>
         </div>
+    </div>
 
-        <!-- Activité 5 -->
-        <div class="activity-card axe-1">
-            <div class="activity-title">
-                <span class="activity-number">5</span>
-                Feedback / Image de soi vs perception externe
+    <!-- TAB: MINIPARCOURS -->
+    <div id="miniparcours" class="tab-content">
+        <div class="container">
+            <div class="section">
+                <h2>🧩 Micro Parcours Thématiques</h2>
+                <p>Des parcours courts et ciblés pour travailler des compétences spécifiques</p>
+
+                <h3>💡 Qu'est-ce qu'un micro parcours ?</h3>
+                <p>Un <strong>micro parcours thématique</strong> est une séquence courte (2 à 4 séances) qui combine plusieurs activités Life Skills autour d'un <strong>objectif précis</strong>. Chaque parcours est <strong>clé en main</strong> et permet de travailler une compétence de manière progressive et concrète.</p>
+
+                <h3>🎯 Miniparcours Thématiques</h3>
+                <p>Découvrez des parcours thématiques courts et ciblés qui combinent plusieurs activités Life Skills autour d'objectifs spécifiques.</p>
+                <a href="https://mlpb-tools.my.canva.site/mini-parcours-th-matiques" target="_blank" class="cta-button">🚀 Explorer les miniparcours</a>
             </div>
-            <div class="activity-meta">
-                <span class="meta-badge">👁️ Ouverture au feedback</span>
-                <span class="meta-badge">🎭 Assertivité</span>
-                <span class="meta-badge">🧘 Régulation émotionnelle</span>
-            </div>
-            <div class="activity-description">
-                Utiliser le regard des autres sans se perdre ni se détruire. Apprendre à recevoir du feedback constructif.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Auto-perception : "Comment je me vois ?" (3 adjectifs, 3 forces)</li>
-                    <li>Feedback croisé en petits groupes : "Comment je te perçois ?" (bienveillant et factuel)</li>
-                    <li>Comparaison et discussion : écarts entre auto-perception et feedback</li>
-                    <li>Plan d'ajustement : qu'est-ce que je garde, qu'est-ce que je travaille ?</li>
-                </ul>
+
+            <div class="section">
+                <h2>🎮 Mini Jeux</h2>
+                <p>Des mini-jeux interactifs pour développer les compétences Life Skills de manière ludique</p>
+                
+                <div class="mini-games-grid">
+                    <!-- Mini-jeu SANTÉ -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-sante')">
+                        <div class="game-icon">🏥</div>
+                        <h4>Mini Jeu SANTÉ</h4>
+                        <p class="game-theme">Thématique : Santé & Bien-être</p>
+                        <p class="game-description">Découvre et développe tes compétences en matière de santé</p>
+                        <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu BUDGET -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/untitled-app')">
+                        <div class="game-icon">💰</div>
+                        <h4>Mini Jeu BUDGET</h4>
+                        <p class="game-theme">Thématique : Budget & Finances</p>
+                        <p class="game-description">Apprends à gérer ton budget et tes finances personnelles</p>
+                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu ENGAGEMENT -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-engagement')">
+                        <div class="game-icon">🤝</div>
+                        <h4>Mini Jeu ENGAGEMENT</h4>
+                        <p class="game-theme">Thématique : Engagement & Valorisation</p>
+                        <p class="game-description">Développe tes capacités d'engagement et d'affirmation de soi</p>
+                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu LOGEMENT -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-appart-crush')">
+                        <div class="game-icon">🏠</div>
+                        <h4>Mini Jeu LOGEMENT</h4>
+                        <p class="game-theme">Thématique : Logement & Habitat</p>
+                        <p class="game-description">Trouve et gère ton logement comme un pro</p>
+                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu MOBILITÉ -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-mobilite')">
+                        <div class="game-icon">🚗</div>
+                        <h4>Mini Jeu MOBILITÉ</h4>
+                        <p class="game-theme">Thématique : Mobilité & Transports</p>
+                        <p class="game-description">Optimise tes déplacements et développe ton autonomie</p>
+                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu MOBILITÉ INTERNATIONALE -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-mobinter')">
+                        <div class="game-icon">✈️</div>
+                        <h4>Mini Jeu MOBILITÉ INTERNATIONALE</h4>
+                        <p class="game-theme">Thématique : Mobilité & Europe</p>
+                        <p class="game-description">Prépare ton projet de mobilité à l'international</p>
+                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu ORIENTATION PROFESSIONNELLE -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-la-boussole-pro')">
+                        <div class="game-icon">🧭</div>
+                        <h4>Mini Jeu LA BOUSSOLE PRO</h4>
+                        <p class="game-theme">Thématique : Orientation Professionnelle</p>
+                        <p class="game-description">Découvre ton projet professionnel et trace ta route</p>
+                        <div class="game-badge game-badge-personnalite">🎯 Axe : Personnalité</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu RECRUTEMENT PRO -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-la-recrutement-pro')">
+                        <div class="game-icon">💼</div>
+                        <h4>Mini Jeu RECRUTEMENT PRO</h4>
+                        <p class="game-theme">Thématique : Recrutement & Entretien</p>
+                        <p class="game-description">Prépare-toi aux entretiens d'embauche et décroche ton job</p>
+                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+
+                    <!-- Mini-jeu LOISIRS -->
+                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-loisirs')">
+                        <div class="game-icon">🎨</div>
+                        <h4>Mini Jeu LOISIRS</h4>
+                        <p class="game-theme">Thématique : Loisirs & Bien-être</p>
+                        <p class="game-description">Développe tes passions et trouve l'équilibre vie pro/perso</p>
+                        <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
+                        <button class="game-button">▶ Jouer maintenant</button>
+                    </div>
+                    
+                    <div class="add-game-card">
+                        <div style="font-size: 4rem; margin-bottom: 1rem;">➕</div>
+                        <h4>Ajouter un mini-jeu</h4>
+                        <p>Copie le code d'une carte et remplace l'URL</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- ========================================
-             AXE 2: VALORISATION DE SOI
-        ======================================== -->
-        <div class="axe-header-section axe-2">
-            <div class="axe-header-title">
-                <div class="axe-icon-large">💚</div>
-                <span>AXE 2 – VALORISATION DE SOI / AUTO-MARKETING</span>
-            </div>
-            <p class="axe-description">Se présenter, prendre sa place, transformer ce que je fais en ressources et savoir communiquer ma valeur aux autres.</p>
-        </div>
+    <!-- TAB: ATELIERS COLLECTIFS -->
+    <div id="ateliers" class="tab-content">
+        <div class="container">
+            <div class="section">
+                <h2>🧑‍🤝‍🧑 Ateliers Collectifs</h2>
+                <p>Mettre en pratique les Life Skills avec d'autres jeunes</p>
 
-        <!-- Activité 6 -->
-        <div class="activity-card axe-2">
-            <div class="activity-title">
-                <span class="activity-number">6</span>
-                Moi à mon meilleur (récit)
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">📖 Narration de soi</span>
-                <span class="meta-badge">💪 Repérage de forces</span>
-                <span class="meta-badge">👂 Écoute active</span>
-            </div>
-            <div class="activity-description">
-                Identifier ce qui me met "au sommet de mon art" et le raconter aux autres.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Réflexion individuelle : "Raconte un moment où tu étais à ton meilleur"</li>
-                    <li>Partage en binôme : raconter son histoire (5 min chacun)</li>
-                    <li>L'autre identifie les forces mobilisées dans le récit</li>
-                    <li>Débrief collectif : quelles forces reviennent le plus souvent ?</li>
-                </ul>
-            </div>
-        </div>
+                <h3>💡 Pourquoi des ateliers collectifs ?</h3>
+                <p>Les <strong>ateliers collectifs</strong> permettent aux jeunes de <strong>mettre en pratique</strong> les compétences Life Skills dans un cadre <strong>bienveillant et dynamique</strong>.</p>
+                <p>C'est l'occasion de <strong>partager des expériences</strong>, de <strong>s'entraîner ensemble</strong> et de <strong>progresser collectivement</strong>.</p>
 
-        <!-- Activité 7 -->
-        <div class="activity-card axe-2">
-            <div class="activity-title">
-                <span class="activity-number">7</span>
-                Pitch vidéo « Montrez le meilleur de vous-même »
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🎬 Structuration pitch</span>
-                <span class="meta-badge">🎤 Expression orale</span>
-                <span class="meta-badge">😰 Gestion du trac</span>
-            </div>
-            <div class="activity-description">
-                Oser se présenter comme une ressource en 1-2 minutes face caméra.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Préparation du pitch : Qui je suis, ce que j'apporte, ce que je cherche</li>
-                    <li>Entraînement en binôme</li>
-                    <li>Enregistrement vidéo (smartphone ou tablette)</li>
-                    <li>Visionnage et feedback constructif du groupe</li>
-                </ul>
-            </div>
-        </div>
+                <h3>🎯 Ateliers MLS4YOU</h3>
+                <p>Accédez au catalogue complet des <strong>ateliers collectifs Life Skills</strong> organisés par la Mission Locale : descriptions, objectifs, déroulés et ressources pédagogiques.</p>
+                <a href="https://mlpb-tools.github.io/MLS4YOU/" target="_blank" class="cta-button">🚀 Découvrir les ateliers</a>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">L'outil s'ouvrira dans un nouvel onglet</p>
 
-        <!-- Activité 8 -->
-        <div class="activity-card axe-2">
-            <div class="activity-title">
-                <span class="activity-number">8</span>
-                Image de marque personnelle
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🏷️ Identification atouts</span>
-                <span class="meta-badge">💎 Valeur ajoutée</span>
-                <span class="meta-badge">🎯 Cohérence de discours</span>
-            </div>
-            <div class="activity-description">
-                Formuler sa "marque perso" : ce qui me rend unique et utile aux autres.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Brainstorming : Qu'est-ce qui me caractérise ? (3 mots-clés)</li>
-                    <li>Identification de la valeur ajoutée : "Pourquoi quelqu'un voudrait travailler avec moi ?"</li>
-                    <li>Création d'un slogan ou d'une phrase signature</li>
-                    <li>Test du pitch devant le groupe</li>
-                </ul>
-            </div>
-        </div>
+                <h3>📚 Guidebook LS4YOU Complet</h3>
+                <p>Consultez le <strong>guide pédagogique complet</strong> avec tous les détails théoriques, les fiches pratiques et les ressources pour accompagner les jeunes avec l'approche Life Skills.</p>
+                <a href="https://www.canva.com/design/DAGyBW1ulz4/IqIVXBCoWOzahB6ZFOGOrw/edit" target="_blank" class="cta-button">📖 Ouvrir le guidebook</a>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Le guide s'ouvrira dans un nouvel onglet</p>
 
-        <!-- Activité 9 -->
-        <div class="activity-card axe-2">
-            <div class="activity-title">
-                <span class="activity-number">9</span>
-                Négociation / auto-marketing
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🤝 Préparation</span>
-                <span class="meta-badge">💬 Communication assertive</span>
-                <span class="meta-badge">⚖️ Gestion des émotions</span>
-            </div>
-            <div class="activity-description">
-                Défendre ses besoins et ses limites tout en recherchant un accord équilibré.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Mise en situation (jeu de rôle) : négocier un salaire, des horaires, un délai</li>
-                    <li>Préparation : identifier ses besoins, ses limites, ses marges de manœuvre</li>
-                    <li>Simulation de négociation en binôme</li>
-                    <li>Débrief : qu'est-ce qui a fonctionné ? Qu'est-ce qui était difficile ?</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 10 -->
-        <div class="activity-card axe-2">
-            <div class="activity-title">
-                <span class="activity-number">10</span>
-                Zine « Mon magazine perso »
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🎨 Exploration identitaire créative</span>
-                <span class="meta-badge">📰 Synthèse visuelle</span>
-                <span class="meta-badge">✂️ Expression libre</span>
-            </div>
-            <div class="activity-description">
-                Représenter visuellement qui je suis et ce que je veux à travers un mini-magazine personnel.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Création d'un zine (magazine DIY) en papier ou numérique</li>
-                    <li>Contenu libre : photos, dessins, mots, collages représentant son identité</li>
-                    <li>Présentation au groupe (facultatif)</li>
-                    <li>Conservation comme outil de présentation ou portfolio créatif</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ========================================
-             AXE 3: SANTÉ PHYSIQUE & MENTALE
-        ======================================== -->
-        <div class="axe-header-section axe-3">
-            <div class="axe-header-title">
-                <div class="axe-icon-large">🤝</div>
-                <span>AXE 3 – SANTÉ PHYSIQUE &amp; MENTALE</span>
-            </div>
-            <p class="axe-description">Disposer d'un minimum de stabilité intérieure et d'énergie pour pouvoir se projeter, agir et tenir dans la durée.</p>
-        </div>
-
-        <!-- Activité 11 -->
-        <div class="activity-card axe-3">
-            <div class="activity-title">
-                <span class="activity-number">11</span>
-                Stressomètre
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">📊 Auto-évaluation du stress</span>
-                <span class="meta-badge">🎯 Plan d'action</span>
-                <span class="meta-badge">🛡️ Prévention</span>
-            </div>
-            <div class="activity-description">
-                Repérer ses signaux de stress et choisir 1 à 3 gestes concrets pour les gérer.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Auto-évaluation : "Sur une échelle de 1 à 10, où est mon stress aujourd'hui ?"</li>
-                    <li>Identification des signaux physiques et émotionnels du stress</li>
-                    <li>Brainstorming collectif : quelles techniques marchent pour vous ? (respiration, sport, musique...)</li>
-                    <li>Choix de 2-3 techniques à tester et plan de suivi</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 12 -->
-        <div class="activity-card axe-3">
-            <div class="activity-title">
-                <span class="activity-number">12</span>
-                Roue des émotions
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🎭 Vocabulaire émotionnel</span>
-                <span class="meta-badge">🧘 Auto-régulation débutante</span>
-                <span class="meta-badge">💬 Expression nuancée</span>
-            </div>
-            <div class="activity-description">
-                Passer de "ça va / ça va pas" à un vocabulaire émotionnel plus précis et nuancé.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Présentation de la roue des émotions (ex : Plutchik ou version simplifiée)</li>
-                    <li>Exercice : identifier 3 émotions ressenties dans la semaine</li>
-                    <li>Discussion : qu'est-ce qui déclenche ces émotions ? Comment je réagis ?</li>
-                    <li>Lien avec le parcours : comment ces émotions influencent mes projets ?</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 13 -->
-        <div class="activity-card axe-3">
-            <div class="activity-title">
-                <span class="activity-number">13</span>
-                Arbre de la résilience
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🌳 Identification ressources</span>
-                <span class="meta-badge">📖 Lecture narrative</span>
-                <span class="meta-badge">💪 Force intérieure</span>
-            </div>
-            <div class="activity-description">
-                Voir comment on a déjà tenu et rebondi face aux difficultés grâce à ses ressources.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Dessiner un arbre symbolique : racines = ressources, tronc = parcours, branches = projets</li>
-                    <li>Remplir les racines : personnes, lieux, activités qui m'ont aidé à tenir</li>
-                    <li>Identifier les tempêtes traversées (difficultés) et comment l'arbre a résisté</li>
-                    <li>Partage en groupe : valoriser la résilience de chacun</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 14 -->
-        <div class="activity-card axe-3">
-            <div class="activity-title">
-                <span class="activity-number">14</span>
-                Portfolio de démarcation (limites)
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🚧 Poser des limites</span>
-                <span class="meta-badge">🛡️ Protection de soi</span>
-                <span class="meta-badge">⚡ Gestion de l'énergie</span>
-            </div>
-            <div class="activity-description">
-                Apprendre à dire oui/non pour préserver son équilibre et son énergie.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Réflexion : "Qu'est-ce qui me vide d'énergie ? Qu'est-ce qui me ressource ?"</li>
-                    <li>Création d'un portfolio visuel (dessins, collages) : mes limites, mes besoins</li>
-                    <li>Mise en situation : s'entraîner à dire non de façon assertive</li>
-                    <li>Plan d'action : identifier 1-2 situations où je vais poser mes limites</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- ========================================
-             AXE 4: RESSOURCES MATÉRIELLES & FINANCIÈRES
-        ======================================== -->
-        <div class="axe-header-section axe-4">
-            <div class="axe-header-title">
-                <div class="axe-icon-large">🎯</div>
-                <span>AXE 4 – RESSOURCES MATÉRIELLES &amp; FINANCIÈRES</span>
-            </div>
-            <p class="axe-description">Savoir mobiliser et organiser les ressources concrètes (argent, logement, droits) qui permettent d'agir dans la vraie vie.</p>
-        </div>
-
-        <!-- Activité 15 -->
-        <div class="activity-card axe-4">
-            <div class="activity-title">
-                <span class="activity-number">15</span>
-                Mindmapping ressources matérielles &amp; financières
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🗺️ Cartographie ressources</span>
-                <span class="meta-badge">⚡ Hiérarchisation urgences</span>
-                <span class="meta-badge">🆘 Demande d'aide ciblée</span>
-            </div>
-            <div class="activity-description">
-                Voir clairement de quoi je dispose et ce qui manque pour agir concrètement.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Création d'une carte mentale : au centre "Mes ressources", branches (argent, logement, mobilité, papiers, équipement...)</li>
-                    <li>Pour chaque branche : ce que j'ai déjà ✅ / ce qui manque ❌ / ce qui est fragile ⚠️</li>
-                    <li>Identification des urgences : qu'est-ce qui bloque mon projet maintenant ?</li>
-                    <li>Plan d'action : qui peut m'aider pour chaque manque identifié ?</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 16 -->
-        <div class="activity-card axe-4">
-            <div class="activity-title">
-                <span class="activity-number">16</span>
-                Jeu « Vraie vie, vrais défis » (budget de vie)
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">💰 Budget réaliste</span>
-                <span class="meta-badge">⚖️ Arbitrages</span>
-                <span class="meta-badge">⚡ Gestion imprévus</span>
-                <span class="meta-badge">🤝 Décision collective</span>
-            </div>
-            <div class="activity-description">
-                Tester les choix de vie adulte sans risque : loyer, courses, loisirs, imprévus...
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Simulation de budget mensuel : salaire fictif + liste de charges réelles (loyer, courses, transport, téléphone...)</li>
-                    <li>Jeu en équipe : chaque groupe doit gérer 3 mois de vie avec des événements aléatoires (panne, invitation, soldes...)</li>
-                    <li>Discussion collective : quels choix ? Quelles priorités ? Quelles stratégies ?</li>
-                    <li>Débrief : lien avec la vraie vie, identification des ressources d'aide (CAF, aides ML...)</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 17 -->
-        <div class="activity-card axe-4">
-            <div class="activity-title">
-                <span class="activity-number">17</span>
-                « Du chèque de paie à la poche »
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">📄 Lecture fiche de paie</span>
-                <span class="meta-badge">💶 Brut / Net</span>
-                <span class="meta-badge">🛡️ Protection sociale</span>
-            </div>
-            <div class="activity-description">
-                Partir du net réel pour parler de niveau de vie et comprendre où va l'argent.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Analyse d'une fiche de paie fictive (ou anonymisée) : repérer brut, net, cotisations</li>
-                    <li>Explication simple : à quoi servent les cotisations ? (santé, retraite, chômage...)</li>
-                    <li>Calcul pratique : "Si je vois une annonce à 1800€ brut, combien j'aurai vraiment ?"</li>
-                    <li>Discussion : différence entre salaire annoncé et pouvoir d'achat réel</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Activité 18 -->
-        <div class="activity-card axe-4">
-            <div class="activity-title">
-                <span class="activity-number">18</span>
-                « Littératie financière – études de cas »
-            </div>
-            <div class="activity-meta">
-                <span class="meta-badge">🔍 Analyse situations</span>
-                <span class="meta-badge">⚠️ Détection risques</span>
-                <span class="meta-badge">🛠️ Stratégies redressement</span>
-            </div>
-            <div class="activity-description">
-                Apprendre à ajuster un budget réel et prévenir le surendettement par l'analyse de cas concrets.
-            </div>
-            <div class="activity-steps">
-                <h4>🛠️ Déroulé pratique</h4>
-                <ul>
-                    <li>Présentation de 3-4 cas réalistes : jeune en découvert, crédit à la consommation, impayés de loyer...</li>
-                    <li>Analyse en petits groupes : quels sont les risques ? Quelles solutions possibles ?</li>
-                    <li>Mise en commun : stratégies de redressement (négociation, étalement, aide sociale...)</li>
-                    <li>Création d'une fiche mémo : "Les signaux d'alerte" et "Qui contacter en cas de problème"</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Note pratique finale -->
-        <div class="final-note">
-            <h3>✨ Note pour l'animation</h3>
-            <div>
-                <p><strong>Ces 18 activités sont modulables :</strong></p>
-                <ul>
-                    <li>
-                        <span>→</span>
-                        <span>Elles peuvent être proposées en <strong>individuel</strong> (entretien approfondi) ou en <strong>collectif</strong> (atelier de groupe).</span>
-                    </li>
-                    <li>
-                        <span>→</span>
-                        <span>Adapter la durée selon le contexte : de 30 minutes (version courte) à 2h (version approfondie).</span>
-                    </li>
-                    <li>
-                        <span>→</span>
-                        <span>Privilégier une approche <strong>bienveillante et non-jugeante</strong> : le jeune reste toujours maître de ce qu'il partage.</span>
-                    </li>
-                    <li>
-                        <span>→</span>
-                        <span>Les activités peuvent être <strong>combinées</strong> dans un parcours progressif selon les besoins du jeune.</span>
-                    </li>
-                    <li>
-                        <span>→</span>
-                        <span><strong>Espaces d'annotation :</strong> utilisez les marges et espaces pour adapter chaque activité à votre contexte local.</span>
-                    </li>
+                <h3>🎓 Les avantages des ateliers collectifs</h3>
+                <ul class="benefits-list">
+                    <li>✓ <strong>Apprentissage par les pairs :</strong> Les jeunes apprennent les uns des autres et partagent leurs expériences</li>
+                    <li>✓ <strong>Mise en pratique concrète :</strong> Des exercices et mises en situation pour expérimenter les compétences</li>
+                    <li>✓ <strong>Dynamique de groupe :</strong> L'énergie collective renforce la motivation et l'engagement</li>
+                    <li>✓ <strong>Cadre sécurisant :</strong> Un espace bienveillant pour expérimenter sans jugement</li>
+                    <li>✓ <strong>Création de liens :</strong> Développer son réseau et tisser des relations positives avec d'autres jeunes</li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <img src="https://ec.europa.eu/regional_policy/images/information-sources/logo-download-center/eu_funded_en.jpg" alt="Co-funded by the European Union" class="footer-logo">
+        <p>© 2025 LS4YOU Project</p>
+        <p>Funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the Agence Erasmus+ France Jeunesse & Sport (Agence du Service Civique). Neither the European Union nor the granting authority can be held responsible for them.</p>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove active from all pills
+            const pills = document.querySelectorAll('.pill');
+            pills.forEach(pill => pill.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active to clicked pill
+            event.target.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function openGame(gameUrl) {
+            // Ouvrir le jeu dans un nouvel onglet
+            window.open(gameUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
