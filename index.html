@@ -1077,6 +1077,717 @@
                 font-size: 1rem;
             }
         }
+
+        /* ========================================
+           STYLES R.P.E (Révélateur des Potentiels)
+           ======================================== */
+        
+        /* R.P.E Container */
+        .rpe-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* R.P.E Glass Panel */
+        .rpe-glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        /* R.P.E Progress Bar */
+        .rpe-progress-container {
+            background: #EDF2F7;
+            border-radius: 999px;
+            overflow: hidden;
+            height: 18px;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .rpe-progress-fill {
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+            height: 100%;
+            border-radius: 999px;
+            transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .rpe-progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.3) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0.3) 75%,
+                transparent 75%,
+                transparent
+            );
+            background-size: 20px 20px;
+            animation: rpe-moveStripe 1s linear infinite;
+        }
+
+        @keyframes rpe-moveStripe {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 20px; }
+        }
+
+        /* R.P.E Welcome Screen */
+        .rpe-welcome {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .rpe-welcome-emoji {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: bounce 2s infinite;
+        }
+
+        .rpe-welcome-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .rpe-welcome-subtitle {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .rpe-stats {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .rpe-stat-badge {
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            font-size: 0.95rem;
+        }
+
+        .rpe-stat-badge.violet {
+            background: linear-gradient(135deg, #EBF4FF 0%, #E0E7FF 100%);
+            color: #8A2BE2;
+            border: 2px solid #8A2BE2;
+        }
+
+        .rpe-stat-badge.rose {
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E8 100%);
+            color: #FF007F;
+            border: 2px solid #FF007F;
+        }
+
+        .rpe-start-button {
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+            transition: all 0.3s ease;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .rpe-start-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* R.P.E Quiz Screen */
+        .rpe-quiz {
+            display: none;
+        }
+
+        .rpe-quiz.active {
+            display: block;
+        }
+
+        .rpe-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-level-indicator {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #8A2BE2;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .rpe-progress-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #999;
+        }
+
+        .rpe-question-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E8 100%);
+            color: #FF007F;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-question-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .rpe-options-grid {
+            display: grid;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .rpe-option-card {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rpe-option-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.15);
+            border-color: #8A2BE2;
+        }
+
+        .rpe-option-card.selected {
+            background: linear-gradient(135deg, #F3E8FF 0%, #FCE7F3 100%);
+            border-color: #8A2BE2;
+            box-shadow: 0 0 0 4px rgba(138, 43, 226, 0.2);
+        }
+
+        .rpe-option-emoji {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .rpe-option-text {
+            flex: 1;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .rpe-option-circle {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #8A2BE2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .rpe-option-circle-fill {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+        }
+
+        .rpe-nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #E2E8F0;
+        }
+
+        .rpe-prev-button {
+            color: #999;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .rpe-prev-button:hover {
+            color: #555;
+        }
+
+        /* R.P.E Level Up Overlay */
+        .rpe-level-up {
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.98);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            border-radius: 2rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .rpe-level-up.active {
+            display: flex;
+        }
+
+        .rpe-level-up-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: bounce 1s infinite;
+        }
+
+        .rpe-level-up-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #8A2BE2;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-level-up-message {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .rpe-level-up-button {
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rpe-level-up-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* R.P.E Loading Screen */
+        .rpe-loading {
+            display: none;
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.95);
+            z-index: 50;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2rem;
+        }
+
+        .rpe-loading.active {
+            display: flex;
+        }
+
+        .rpe-spinner {
+            width: 4rem;
+            height: 4rem;
+            border: 4px solid rgba(138, 43, 226, 0.2);
+            border-top: 4px solid #8A2BE2;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-loading-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #555;
+            animation: pulse 2s infinite;
+        }
+
+        /* R.P.E Results Screen */
+        .rpe-results {
+            display: none;
+        }
+
+        .rpe-results.active {
+            display: block;
+        }
+
+        .rpe-results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .rpe-results-emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-results-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-results-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8A2BE2;
+        }
+
+        .rpe-results-content {
+            max-height: 60vh;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .rpe-results-section {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-results-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-skill-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .rpe-skill-emoji {
+            font-size: 1.5rem;
+        }
+
+        .rpe-skill-value {
+            font-weight: 700;
+            color: #8A2BE2;
+        }
+
+        .rpe-skill-bar {
+            width: 100%;
+            height: 10px;
+            background: #E2E8F0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .rpe-skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8A2BE2, #FF007F);
+            border-radius: 10px;
+            transition: width 1s ease-out;
+        }
+
+        .rpe-skill-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .rpe-improvements {
+            background: linear-gradient(135deg, #FFF0F5 0%, #FFE4E8 100%);
+            border-left: 4px solid #FF007F;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-improvements h3 {
+            color: #D32F2F;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-improvement-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-improvement-emoji {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .rpe-improvement-text strong {
+            display: block;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .rpe-improvement-text span {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .rpe-parcours-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .rpe-parcours-card {
+            background: white;
+            border: 2px solid #E2E8F0;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .rpe-parcours-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(138, 43, 226, 0.15);
+            border-color: #8A2BE2;
+        }
+
+        .rpe-parcours-content {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .rpe-parcours-emoji {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #EBF4FF 0%, #E0E7FF 100%);
+            padding: 1rem;
+            border-radius: 1rem;
+            flex-shrink: 0;
+        }
+
+        .rpe-parcours-info {
+            flex: 1;
+        }
+
+        .rpe-parcours-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #8A2BE2;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-parcours-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-parcours-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .rpe-parcours-tag {
+            background: linear-gradient(135deg, #F3E8FF 0%, #FCE7F3 100%);
+            color: #8A2BE2;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+        }
+
+        .rpe-parcours-link {
+            color: #FF007F;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .rpe-parcours-link:hover {
+            color: #D32F2F;
+            text-decoration: underline;
+        }
+
+        .rpe-contact {
+            background: linear-gradient(135deg, #8A2BE2, #FF007F);
+            color: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .rpe-contact h3 {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .rpe-contact p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .rpe-contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .rpe-contact-button {
+            background: white;
+            color: #8A2BE2;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .rpe-contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .rpe-contact-button.secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .rpe-contact-button.secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .rpe-restart-button {
+            width: 100%;
+            background: #F3F4F6;
+            color: #555;
+            font-weight: 700;
+            padding: 1rem;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .rpe-restart-button:hover {
+            background: #E5E7EB;
+            transform: translateY(-2px);
+        }
+
+        /* R.P.E Animations */
+        .rpe-slide-in {
+            animation: rpe-slideIn 0.4s ease-out;
+        }
+
+        .rpe-pop-in {
+            animation: rpe-popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes rpe-slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes rpe-popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* R.P.E Responsive */
+        @media (max-width: 768px) {
+            .rpe-welcome-title {
+                font-size: 2rem;
+            }
+
+            .rpe-question-text {
+                font-size: 1.3rem;
+            }
+
+            .rpe-stats {
+                flex-direction: column;
+            }
+
+            .rpe-option-card {
+                padding: 1rem;
+            }
+
+            .rpe-option-emoji {
+                font-size: 1.5rem;
+            }
+
+            .rpe-parcours-content {
+                flex-direction: column;
+            }
+
+            .rpe-parcours-emoji {
+                align-self: flex-start;
+            }
+
+            .rpe-contact-buttons {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1187,37 +1898,90 @@
     <!-- TAB: AUTOTEST -->
     <div id="autotest" class="tab-content">
         <div class="container">
-            <div class="autotest-hero">
-                <div class="autotest-card">
-                    <div class="autotest-icon">👋</div>
-                    <h2 class="autotest-title">Prêt à découvrir ton profil ?</h2>
-                    <p class="autotest-description">Pas de jugement, juste 5 minutes pour faire le point sur ta situation et découvrir tes super-pouvoirs !</p>
-                    
-                    <div class="autotest-stats">
-                        <div class="stat-badge">
-                            <span class="stat-icon">🎯</span>
-                            <span class="stat-text">50 Questions</span>
+            <div class="rpe-container">
+                <div class="rpe-glass-panel">
+                    <!-- Welcome Screen -->
+                    <div id="rpe-welcome" class="rpe-welcome rpe-pop-in">
+                        <div class="rpe-welcome-emoji">👋</div>
+                        <h1 class="rpe-welcome-title">Prêt à découvrir<br>tes potentiels ?</h1>
+                        <p class="rpe-welcome-subtitle">Pas de jugement, juste 5 minutes pour faire le point sur ta situation et révéler tes potentiels !</p>
+                        
+                        <div class="rpe-stats">
+                            <div class="rpe-stat-badge violet">
+                                🎯 50 Questions
+                            </div>
+                            <div class="rpe-stat-badge rose">
+                                🏆 5 Niveaux
+                            </div>
                         </div>
-                        <div class="stat-badge">
-                            <span class="stat-icon">🏆</span>
-                            <span class="stat-text">5 Niveaux</span>
+
+                        <button onclick="rpeStartQuiz()" class="rpe-start-button">C'est parti ! 🚀</button>
+                    </div>
+
+                    <!-- Quiz Screen -->
+                    <div id="rpe-quiz" class="rpe-quiz">
+                        <div class="rpe-progress-header">
+                            <div class="rpe-level-indicator" id="rpe-level-indicator">NIVEAU 1</div>
+                            <div class="rpe-progress-text" id="rpe-progress-text">Question 1/50</div>
+                        </div>
+                        
+                        <div class="rpe-progress-container">
+                            <div class="rpe-progress-fill" id="rpe-progress-fill" style="width: 2%;"></div>
+                        </div>
+
+                        <div class="rpe-question-badge" id="rpe-question-badge">Question 1</div>
+                        <h2 class="rpe-question-text" id="rpe-question-text">Chargement...</h2>
+                        
+                        <div class="rpe-options-grid" id="rpe-options-grid">
+                            <!-- Options générées dynamiquement -->
+                        </div>
+
+                        <div class="rpe-nav-buttons">
+                            <button onclick="rpePreviousQuestion()" class="rpe-prev-button" id="rpe-prev-button" style="visibility: hidden;">← Précédent</button>
+                            <div></div>
                         </div>
                     </div>
 
-                    <a href="https://mlpb-tools.github.io/DIAG4U/" target="_blank" class="autotest-button">C'est parti ! 🚀</a>
+                    <!-- Level Up Overlay -->
+                    <div id="rpe-level-up" class="rpe-level-up">
+                        <div class="rpe-level-up-emoji">🎉</div>
+                        <div class="rpe-level-up-title" id="rpe-level-up-title">Niveau 1 complété !</div>
+                        <div class="rpe-level-up-message" id="rpe-level-up-message">Continue comme ça !</div>
+                        <button onclick="rpeContinueQuiz()" class="rpe-level-up-button">Continuer →</button>
+                    </div>
+
+                    <!-- Loading Screen -->
+                    <div id="rpe-loading" class="rpe-loading">
+                        <div class="rpe-spinner"></div>
+                        <p class="rpe-loading-text">Analyse de tes potentiels...</p>
+                    </div>
+
+                    <!-- Results Screen -->
+                    <div id="rpe-results" class="rpe-results">
+                        <div class="rpe-results-header">
+                            <div class="rpe-results-emoji">🎯</div>
+                            <div class="rpe-results-title">Ton Profil Life Skills</div>
+                            <div class="rpe-results-subtitle" id="rpe-profile-type">Chargement...</div>
+                        </div>
+
+                        <div class="rpe-results-content" id="rpe-results-content">
+                            <!-- Résultats générés dynamiquement -->
+                        </div>
+
+                        <button onclick="rpeRestartQuiz()" class="rpe-restart-button">
+                            🔄 Recommencer l'autotest
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section" style="margin-top: 2rem;">
                 <h3>💡 Comment ça marche ?</h3>
                 <p>Cet auto-test Life Skills te permet d'<strong>identifier tes axes prioritaires</strong> à travailler. Tu le fais <strong>en autonomie</strong>, à ton rythme, sans jugement. Il ne s'agit pas de noter ou de juger, mais de <strong>comprendre où tu en es</strong> aujourd'hui.</p>
                 
                 <div class="info-box">
                     <strong>Important :</strong> Tu fais cet auto-test <strong>seul(e)</strong>, quand tu veux. Ensuite, tu reprends les résultats et les préconisations <strong>avec ton conseiller</strong> pour co-construire ensemble ton parcours d'accompagnement.
                 </div>
-
-                <h3>🔗 Complémentaire avec le RPE</h3>
-                <p>Cet auto-test Life Skills est un <strong>complément adapté</strong> à l'auto-test du <strong>Repérage des Potentiels et des Environnements (RPE)</strong>. Ensemble, ils offrent une vision complète de ta situation et de tes compétences.</p>
             </div>
         </div>
     </div>
@@ -1587,6 +2351,892 @@
             }
         `;
         document.head.appendChild(style);
+
+        // ===========================================
+        // R.P.E - JavaScript Intégré
+        // ===========================================
+
+        // Questions du R.P.E (50 questions, 5 niveaux)
+        const rpeQuestions = [
+            // NIVEAU 1 (Questions 1-10)
+            { id: 1, level: 1, text: "Je sais ce que je veux faire dans la vie", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 2, level: 1, text: "Je me sens capable de réussir ce que j'entreprends", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 3, level: 1, text: "J'arrive à exprimer mes émotions facilement", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 4, level: 1, text: "Je connais mes qualités et mes points forts", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 5, level: 1, text: "Je me sens bien dans ma vie au quotidien", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 6, level: 1, text: "J'ai des personnes sur qui je peux compter", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 7, level: 1, text: "Je sais gérer mon stress au quotidien", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 8, level: 1, text: "Je prends soin de ma santé (alimentation, sommeil, sport)", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 9, level: 1, text: "Je sais demander de l'aide quand j'en ai besoin", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 10, level: 1, text: "Je me sens motivé(e) pour avancer dans mes projets", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            
+            // NIVEAU 2 (Questions 11-20)
+            { id: 11, level: 2, text: "J'ai confiance en mes capacités à trouver des solutions", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 12, level: 2, text: "Je sais m'adapter aux changements", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 13, level: 2, text: "Je peux parler de mes difficultés sans honte", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 14, level: 2, text: "Je sais ce qui me rend heureux/heureuse", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 15, level: 2, text: "Je me sens écouté(e) et compris(e) par mon entourage", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 16, level: 2, text: "J'arrive à gérer les conflits sans trop de difficultés", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 17, level: 2, text: "Je connais les ressources disponibles pour m'aider (Mission Locale, Pôle Emploi...)", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 18, level: 2, text: "Je suis capable de planifier mes actions pour atteindre mes objectifs", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 19, level: 2, text: "Je me sens capable d'apprendre de nouvelles choses", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 20, level: 2, text: "J'ai des activités qui me font du bien (loisirs, sport, culture...)", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            
+            // NIVEAU 3 (Questions 21-30)
+            { id: 21, level: 3, text: "Je sais identifier mes émotions et les comprendre", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 22, level: 3, text: "Je me sens capable de prendre des décisions importantes", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 23, level: 3, text: "J'accepte mes défauts et j'en fais une force", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 24, level: 3, text: "Je sais dire non quand quelque chose ne me convient pas", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 25, level: 3, text: "J'ai des projets concrets pour mon avenir", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 26, level: 3, text: "Je sais travailler en équipe et collaborer avec les autres", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 27, level: 3, text: "Je connais mes valeurs et ce qui est important pour moi", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 28, level: 3, text: "Je suis capable de rebondir après un échec", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 29, level: 3, text: "J'ai une bonne estime de moi-même", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 30, level: 3, text: "Je sais gérer mon temps et mes priorités", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            
+            // NIVEAU 4 (Questions 31-40)
+            { id: 31, level: 4, text: "Je suis créatif/créative et j'aime trouver des solutions originales", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 32, level: 4, text: "Je me sens capable de mener un projet de A à Z", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 33, level: 4, text: "Je sais m'affirmer tout en respectant les autres", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 34, level: 4, text: "J'ai développé des compétences que je peux valoriser", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 35, level: 4, text: "Je suis à l'aise pour communiquer avec différentes personnes", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 36, level: 4, text: "Je sais analyser une situation avant de prendre une décision", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 37, level: 4, text: "J'ai un réseau de contacts qui peut m'aider professionnellement", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 38, level: 4, text: "Je suis persévérant(e) face aux difficultés", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 39, level: 4, text: "Je sais tirer des leçons de mes expériences passées", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 40, level: 4, text: "J'ai confiance en mon avenir professionnel", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            
+            // NIVEAU 5 (Questions 41-50)
+            { id: 41, level: 5, text: "Je suis capable de motiver et d'influencer positivement les autres", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 42, level: 5, text: "J'ai une vision claire de mon parcours et de mes étapes", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 43, level: 5, text: "Je suis autonome dans mes démarches et mes actions", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 44, level: 5, text: "Je sais mettre en valeur mes compétences et mes expériences", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 45, level: 5, text: "J'ai développé un vrai réseau professionnel actif", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 46, level: 5, text: "Je me sens prêt(e) à relever de nouveaux défis", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 47, level: 5, text: "Je sais anticiper et planifier sur le long terme", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 48, level: 5, text: "J'ai trouvé un équilibre entre vie personnelle et projet professionnel", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 49, level: 5, text: "Je suis capable d'accompagner d'autres personnes dans leur parcours", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]},
+            { id: 50, level: 5, text: "Je me sens acteur/actrice de ma vie et de mes choix", options: [
+                { emoji: "😔", text: "Pas du tout", value: 1 },
+                { emoji: "😐", text: "Un peu", value: 2 },
+                { emoji: "🙂", text: "Moyennement", value: 3 },
+                { emoji: "😊", text: "Plutôt oui", value: 4 },
+                { emoji: "😄", text: "Tout à fait", value: 5 }
+            ]}
+        ];
+
+        // Messages de passage de niveau
+        const rpeLevelMessages = {
+            1: { emoji: "🎉", title: "Niveau 1 complété !", message: "Super départ ! Continue comme ça !" },
+            2: { emoji: "🚀", title: "Niveau 2 débloqué !", message: "Tu progresses bien, c'est génial !" },
+            3: { emoji: "🌟", title: "Niveau 3 atteint !", message: "Tu es à mi-chemin, bravo !" },
+            4: { emoji: "🏆", title: "Niveau 4 terminé !", message: "Plus qu'un niveau, tu assures !" },
+            5: { emoji: "🎊", title: "Tous les niveaux complétés !", message: "Félicitations, c'est terminé !" }
+        };
+
+        // État du quiz
+        let rpeState = {
+            currentQuestion: 0,
+            responses: [],
+            startTime: null,
+            sessionId: `RPE-${Date.now()}`
+        };
+
+        // Démarrer le quiz
+        function rpeStartQuiz() {
+            console.log('R.P.E: Initializing quiz...');
+            console.log(`R.P.E: Session ID: ${rpeState.sessionId}`);
+            
+            rpeState.currentQuestion = 0;
+            rpeState.responses = [];
+            rpeState.startTime = new Date();
+            
+            document.getElementById('rpe-welcome').style.display = 'none';
+            document.getElementById('rpe-quiz').classList.add('active');
+            
+            rpeShowQuestion();
+        }
+
+        // Afficher une question
+        function rpeShowQuestion() {
+            const question = rpeQuestions[rpeState.currentQuestion];
+            const progress = ((rpeState.currentQuestion + 1) / 50) * 100;
+            
+            console.log(`R.P.E: Question ${rpeState.currentQuestion + 1}/50 (Level ${question.level})`);
+            
+            // Mise à jour de la progression
+            document.getElementById('rpe-level-indicator').textContent = `NIVEAU ${question.level}`;
+            document.getElementById('rpe-progress-text').textContent = `Question ${rpeState.currentQuestion + 1}/50`;
+            document.getElementById('rpe-progress-fill').style.width = `${progress}%`;
+            
+            // Affichage de la question
+            document.getElementById('rpe-question-badge').textContent = `Question ${rpeState.currentQuestion + 1}`;
+            document.getElementById('rpe-question-text').textContent = question.text;
+            
+            // Affichage des options
+            const optionsGrid = document.getElementById('rpe-options-grid');
+            optionsGrid.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionCard = document.createElement('div');
+                optionCard.className = 'rpe-option-card rpe-slide-in';
+                optionCard.style.animationDelay = `${index * 0.05}s`;
+                optionCard.onclick = () => rpeSelectOption(option.value, optionCard);
+                
+                optionCard.innerHTML = `
+                    <div class="rpe-option-emoji">${option.emoji}</div>
+                    <div class="rpe-option-text">${option.text}</div>
+                    <div class="rpe-option-circle">
+                        <div class="rpe-option-circle-fill" style="display: none;"></div>
+                    </div>
+                `;
+                
+                optionsGrid.appendChild(optionCard);
+            });
+            
+            // Bouton précédent
+            const prevButton = document.getElementById('rpe-prev-button');
+            if (rpeState.currentQuestion > 0) {
+                prevButton.style.visibility = 'visible';
+            } else {
+                prevButton.style.visibility = 'hidden';
+            }
+        }
+
+        // Sélectionner une option
+        function rpeSelectOption(value, optionCard) {
+            console.log(`R.P.E: Selected option for Q${rpeState.currentQuestion + 1}: ${value}`);
+            
+            // Désélectionner toutes les options
+            document.querySelectorAll('.rpe-option-card').forEach(card => {
+                card.classList.remove('selected');
+                card.querySelector('.rpe-option-circle-fill').style.display = 'none';
+            });
+            
+            // Sélectionner l'option choisie
+            optionCard.classList.add('selected');
+            optionCard.querySelector('.rpe-option-circle-fill').style.display = 'block';
+            
+            // Enregistrer la réponse
+            rpeState.responses[rpeState.currentQuestion] = value;
+            
+            // Passer à la question suivante après un délai
+            setTimeout(() => {
+                if (rpeState.currentQuestion < 49) {
+                    // Vérifier si on termine un niveau
+                    const currentLevel = rpeQuestions[rpeState.currentQuestion].level;
+                    const nextLevel = rpeQuestions[rpeState.currentQuestion + 1].level;
+                    
+                    if (currentLevel < nextLevel) {
+                        rpeShowLevelUp(currentLevel);
+                    } else {
+                        rpeState.currentQuestion++;
+                        rpeShowQuestion();
+                    }
+                } else {
+                    rpeFinishQuiz();
+                }
+            }, 400);
+        }
+
+        // Question précédente
+        function rpePreviousQuestion() {
+            if (rpeState.currentQuestion > 0) {
+                rpeState.currentQuestion--;
+                rpeShowQuestion();
+            }
+        }
+
+        // Afficher l'écran de passage de niveau
+        function rpeShowLevelUp(level) {
+            console.log(`R.P.E: Level ${level} completed!`);
+            
+            const message = rpeLevelMessages[level];
+            document.getElementById('rpe-level-up-title').textContent = message.title;
+            document.getElementById('rpe-level-up-message').textContent = message.message;
+            document.querySelector('.rpe-level-up-emoji').textContent = message.emoji;
+            
+            document.getElementById('rpe-level-up').classList.add('active');
+            
+            // Confettis
+            rpeFireConfetti(30);
+        }
+
+        // Continuer après le passage de niveau
+        function rpeContinueQuiz() {
+            document.getElementById('rpe-level-up').classList.remove('active');
+            rpeState.currentQuestion++;
+            rpeShowQuestion();
+        }
+
+        // Terminer le quiz
+        function rpeFinishQuiz() {
+            console.log('R.P.E: Quiz completed, processing results...');
+            
+            document.getElementById('rpe-quiz').classList.remove('active');
+            document.getElementById('rpe-loading').classList.add('active');
+            
+            setTimeout(() => {
+                const results = rpeCalculateResults();
+                rpeShowResults(results);
+                
+                document.getElementById('rpe-loading').classList.remove('active');
+                document.getElementById('rpe-results').classList.add('active');
+                
+                // Confettis finaux
+                rpeFireConfetti(150);
+            }, 2000);
+        }
+
+        // Calculer les résultats
+        function rpeCalculateResults() {
+            console.log('R.P.E: Calculating results...');
+            
+            // Calcul des 4 axes Life Skills
+            const axes = {
+                personnalite: { name: 'Personnalité', emoji: '🧠', score: 0, questions: [1,2,3,4,21,22,23,24,29] },
+                valorisation: { name: 'Valorisation', emoji: '🌟', score: 0, questions: [2,4,23,27,29,34,42,44,49] },
+                bienetre: { name: 'Bien-être', emoji: '🤝', score: 0, questions: [5,7,8,14,20,24,28,38,48] },
+                ressources: { name: 'Ressources', emoji: '💰', score: 0, questions: [6,9,15,17,26,35,37,45,50] }
+            };
+            
+            // Calcul des scores par axe
+            Object.keys(axes).forEach(axe => {
+                const questions = axes[axe].questions;
+                const total = questions.reduce((sum, qNum) => sum + (rpeState.responses[qNum - 1] || 0), 0);
+                axes[axe].score = Math.round((total / (questions.length * 5)) * 100);
+            });
+            
+            // Calcul des compétences thématiques
+            const thematicSkills = {
+                connaissance_de_soi: { name: 'Connaissance de soi', emoji: '🔍', questions: [1,4,14,21,23,27,29], score: 0 },
+                confiance: { name: 'Confiance et estime de soi', emoji: '💪', questions: [2,11,22,29,40,43,46,50], score: 0 },
+                communication: { name: 'Communication', emoji: '💬', questions: [3,13,24,26,33,35], score: 0 },
+                gestion_emotions: { name: 'Gestion des émotions', emoji: '🎭', questions: [3,7,16,21,24,28], score: 0 },
+                adaptation: { name: 'Adaptation et résilience', emoji: '🌊', questions: [12,22,28,38,39], score: 0 },
+                projet: { name: 'Construction de projet', emoji: '🎯', questions: [1,18,25,30,32,36,42,47], score: 0 },
+                relationnel: { name: 'Compétences relationnelles', emoji: '🤝', questions: [6,9,15,16,26,35,41,49], score: 0 },
+                autonomie: { name: 'Autonomie et organisation', emoji: '⚡', questions: [18,30,32,36,43,47], score: 0 }
+            };
+            
+            Object.keys(thematicSkills).forEach(skill => {
+                const questions = thematicSkills[skill].questions;
+                const total = questions.reduce((sum, qNum) => sum + (rpeState.responses[qNum - 1] || 0), 0);
+                thematicSkills[skill].score = Math.round((total / (questions.length * 5)) * 100);
+            });
+            
+            // Déterminer le profil
+            const avgScore = Object.values(axes).reduce((sum, axe) => sum + axe.score, 0) / 4;
+            let profileType, profileDescription;
+            
+            if (avgScore < 30) {
+                profileType = "Besoin d'Accompagnement";
+                profileDescription = "Tu as besoin d'un accompagnement personnalisé pour développer tes compétences et renforcer ta confiance.";
+            } else if (avgScore < 50) {
+                profileType = "En Découverte";
+                profileDescription = "Tu commences à identifier tes compétences. Un accompagnement te permettra d'aller plus loin.";
+            } else if (avgScore < 65) {
+                profileType = "Développeur de Compétences";
+                profileDescription = "Tu as de bonnes bases. Continue à développer tes points forts et à travailler sur tes axes d'amélioration.";
+            } else if (avgScore < 80) {
+                profileType = "Créateur de Liens";
+                profileDescription = "Tu as développé de solides compétences. Tu peux maintenant les mettre en pratique et aider les autres.";
+            } else {
+                profileType = "Prêt à Passer à l'Action";
+                profileDescription = "Bravo ! Tu as toutes les compétences nécessaires pour réussir. À toi de jouer !";
+            }
+            
+            // Identifier les axes à améliorer (score < 60%)
+            const improvements = Object.entries(axes)
+                .filter(([_, axe]) => axe.score < 60)
+                .map(([key, axe]) => ({
+                    key,
+                    name: axe.name,
+                    emoji: axe.emoji,
+                    score: axe.score
+                }))
+                .sort((a, b) => a.score - b.score)
+                .slice(0, 2);
+            
+            console.log('R.P.E: Results calculated', { avgScore, profileType, improvements });
+            
+            return {
+                profileType,
+                profileDescription,
+                avgScore,
+                axes,
+                thematicSkills,
+                improvements
+            };
+        }
+
+        // Afficher les résultats
+        function rpeShowResults(results) {
+            console.log('R.P.E: Displaying results...');
+            
+            document.getElementById('rpe-profile-type').textContent = results.profileType;
+            
+            const resultsContent = document.getElementById('rpe-results-content');
+            resultsContent.innerHTML = '';
+            
+            // Section: 4 Axes Life Skills
+            const axesSection = document.createElement('div');
+            axesSection.className = 'rpe-results-section';
+            axesSection.innerHTML = '<h3>Les 4 Axes Life Skills</h3>';
+            
+            Object.values(results.axes).forEach(axe => {
+                const skillItem = document.createElement('div');
+                skillItem.className = 'rpe-skill-item';
+                skillItem.innerHTML = `
+                    <div class="rpe-skill-header">
+                        <div class="rpe-skill-label">
+                            <div class="rpe-skill-emoji">${axe.emoji}</div>
+                            <span>${axe.name}</span>
+                        </div>
+                        <div class="rpe-skill-value">${axe.score}%</div>
+                    </div>
+                    <div class="rpe-skill-bar">
+                        <div class="rpe-skill-bar-fill" style="width: 0%;"></div>
+                    </div>
+                `;
+                axesSection.appendChild(skillItem);
+            });
+            
+            resultsContent.appendChild(axesSection);
+            
+            // Animer les barres de progression
+            setTimeout(() => {
+                document.querySelectorAll('.rpe-skill-bar-fill').forEach((bar, index) => {
+                    setTimeout(() => {
+                        const axeScores = Object.values(results.axes).map(a => a.score);
+                        bar.style.width = `${axeScores[index % axeScores.length]}%`;
+                    }, index * 100);
+                });
+            }, 100);
+            
+            // Section: Compétences thématiques (top 5)
+            const topSkills = Object.values(results.thematicSkills)
+                .sort((a, b) => b.score - a.score)
+                .slice(0, 5);
+            
+            const skillsSection = document.createElement('div');
+            skillsSection.className = 'rpe-results-section';
+            skillsSection.innerHTML = '<h3>Tes 5 compétences principales</h3>';
+            
+            topSkills.forEach(skill => {
+                const skillItem = document.createElement('div');
+                skillItem.className = 'rpe-skill-item';
+                skillItem.innerHTML = `
+                    <div class="rpe-skill-header">
+                        <div class="rpe-skill-label">
+                            <div class="rpe-skill-emoji">${skill.emoji}</div>
+                            <span>${skill.name}</span>
+                        </div>
+                        <div class="rpe-skill-value">${skill.score}%</div>
+                    </div>
+                    <div class="rpe-skill-bar">
+                        <div class="rpe-skill-bar-fill" style="width: 0%;"></div>
+                    </div>
+                `;
+                skillsSection.appendChild(skillItem);
+            });
+            
+            resultsContent.appendChild(skillsSection);
+            
+            // Animer les barres des compétences
+            setTimeout(() => {
+                const skillBars = skillsSection.querySelectorAll('.rpe-skill-bar-fill');
+                skillBars.forEach((bar, index) => {
+                    setTimeout(() => {
+                        bar.style.width = `${topSkills[index].score}%`;
+                    }, (Object.values(results.axes).length + index) * 100);
+                });
+            }, 100);
+            
+            // Section: Axes à améliorer
+            if (results.improvements.length > 0) {
+                const improvementsSection = document.createElement('div');
+                improvementsSection.className = 'rpe-improvements';
+                improvementsSection.innerHTML = '<h3>💡 Axes d\'amélioration suggérés</h3>';
+                
+                results.improvements.forEach(improvement => {
+                    const improvementItem = document.createElement('div');
+                    improvementItem.className = 'rpe-improvement-item';
+                    
+                    let suggestion = '';
+                    switch(improvement.key) {
+                        case 'personnalite':
+                            suggestion = 'Travaille sur la connaissance de toi-même et ta confiance en toi';
+                            break;
+                        case 'valorisation':
+                            suggestion = 'Apprends à valoriser tes compétences et ton parcours';
+                            break;
+                        case 'bienetre':
+                            suggestion = 'Prends soin de ton bien-être physique et mental';
+                            break;
+                        case 'ressources':
+                            suggestion = 'Développe ton réseau et mobilise les ressources disponibles';
+                            break;
+                    }
+                    
+                    improvementItem.innerHTML = `
+                        <div class="rpe-improvement-emoji">${improvement.emoji}</div>
+                        <div class="rpe-improvement-text">
+                            <strong>${improvement.name}</strong>
+                            <span>${suggestion}</span>
+                        </div>
+                    `;
+                    improvementsSection.appendChild(improvementItem);
+                });
+                
+                resultsContent.appendChild(improvementsSection);
+            }
+            
+            // Section: Mini-Parcours recommandés
+            const parcoursSection = document.createElement('div');
+            parcoursSection.className = 'rpe-parcours-section';
+            parcoursSection.innerHTML = '<h3>🎯 Mini-Parcours recommandés pour toi</h3>';
+            
+            // Recommandations basées sur les axes à améliorer
+            const parcours = [];
+            if (results.improvements.some(i => i.key === 'personnalite')) {
+                parcours.push({
+                    emoji: '🧠',
+                    title: 'Connaissance de soi',
+                    description: 'Découvre tes valeurs, tes motivations et tes talents cachés.',
+                    tags: ['Personnalité', 'Introspection'],
+                    url: '#miniparcours'
+                });
+            }
+            if (results.improvements.some(i => i.key === 'valorisation')) {
+                parcours.push({
+                    emoji: '🌟',
+                    title: 'Valorisation des compétences',
+                    description: 'Apprends à identifier et à valoriser ton parcours et tes compétences.',
+                    tags: ['Valorisation', 'CV'],
+                    url: '#miniparcours'
+                });
+            }
+            if (results.improvements.some(i => i.key === 'bienetre')) {
+                parcours.push({
+                    emoji: '🧘',
+                    title: 'Bien-être et équilibre',
+                    description: 'Développe des techniques pour gérer ton stress et prendre soin de toi.',
+                    tags: ['Bien-être', 'Santé'],
+                    url: '#miniparcours'
+                });
+            }
+            if (results.improvements.some(i => i.key === 'ressources')) {
+                parcours.push({
+                    emoji: '🤝',
+                    title: 'Réseau et ressources',
+                    description: 'Apprends à mobiliser les ressources et à développer ton réseau.',
+                    tags: ['Réseau', 'Ressources'],
+                    url: '#miniparcours'
+                });
+            }
+            
+            // Si pas d'axes à améliorer, proposer des parcours avancés
+            if (parcours.length === 0) {
+                parcours.push({
+                    emoji: '🚀',
+                    title: 'Passage à l\'action',
+                    description: 'Concrétise tes projets et passe à la vitesse supérieure.',
+                    tags: ['Action', 'Projet'],
+                    url: '#miniparcours'
+                });
+            }
+            
+            parcours.forEach(p => {
+                const parcoursCard = document.createElement('div');
+                parcoursCard.className = 'rpe-parcours-card';
+                parcoursCard.innerHTML = `
+                    <div class="rpe-parcours-content">
+                        <div class="rpe-parcours-emoji">${p.emoji}</div>
+                        <div class="rpe-parcours-info">
+                            <div class="rpe-parcours-title">${p.title}</div>
+                            <div class="rpe-parcours-description">${p.description}</div>
+                            <div class="rpe-parcours-tags">
+                                ${p.tags.map(tag => `<span class="rpe-parcours-tag">${tag}</span>`).join('')}
+                            </div>
+                            <a href="${p.url}" class="rpe-parcours-link">Découvrir ce parcours →</a>
+                        </div>
+                    </div>
+                `;
+                parcoursSection.appendChild(parcoursCard);
+            });
+            
+            resultsContent.appendChild(parcoursSection);
+            
+            // Section: Contact
+            const contactSection = document.createElement('div');
+            contactSection.className = 'rpe-contact';
+            contactSection.innerHTML = `
+                <h3>🎓 Besoin d'un accompagnement personnalisé ?</h3>
+                <p>Reprends tes résultats avec ton conseiller Mission Locale pour co-construire ton parcours !</p>
+                <div class="rpe-contact-buttons">
+                    <a href="#ateliers" class="rpe-contact-button">Voir les ateliers</a>
+                    <a href="https://www.missionlocalepaysbasque.com" target="_blank" class="rpe-contact-button secondary">Contacter la Mission Locale</a>
+                </div>
+            `;
+            
+            resultsContent.appendChild(contactSection);
+        }
+
+        // Recommencer le quiz
+        function rpeRestartQuiz() {
+            console.log('R.P.E: Restarting quiz...');
+            
+            rpeState = {
+                currentQuestion: 0,
+                responses: [],
+                startTime: null,
+                sessionId: `RPE-${Date.now()}`
+            };
+            
+            document.getElementById('rpe-results').classList.remove('active');
+            document.getElementById('rpe-welcome').style.display = 'block';
+            document.getElementById('rpe-welcome').classList.add('rpe-pop-in');
+            
+            console.log('R.P.E: Quiz reset complete');
+        }
+
+        // Animation confettis
+        function rpeFireConfetti(count) {
+            console.log(`R.P.E: Firing ${count} confetti particles`);
+            
+            const colors = ['#8A2BE2', '#FF007F', '#D32F2F', '#FFD93D'];
+            const confettiContainer = document.querySelector('.rpe-glass-panel');
+            
+            for (let i = 0; i < count; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.opacity = '1';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '100';
+                
+                confettiContainer.appendChild(confetti);
+                
+                const fall = confetti.animate([
+                    { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: 2000 + Math.random() * 1000,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                });
+                
+                fall.onfinish = () => confetti.remove();
+            }
+        }
+
+        // Log de bienvenue dans la console
+        console.log('%c╔═══════════════════════════════════════╗', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c║   R.P.E - Révélateur des Potentiels  ║', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c║        et des Évolutions              ║', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c║   Mission Locale Pays Basque          ║', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c║   Version: 1.0.0 (Intégré au Hub)    ║', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c║   Status: Ready ✓                     ║', 'color: #8A2BE2; font-weight: bold;');
+        console.log('%c╚═══════════════════════════════════════╝', 'color: #8A2BE2; font-weight: bold;');
     </script>
 </body>
 </html>
