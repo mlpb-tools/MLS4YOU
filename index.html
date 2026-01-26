@@ -2006,128 +2006,115 @@
                 <a href="https://mlpb-tools.my.canva.site/mini-parcours-th-matiques" target="_blank" class="cta-button">🚀 Explorer les miniparcours</a>
             </div>
 
-            <div class="section">
-                <h2>🎮 Mini Jeux</h2>
-                <p>Des mini-jeux interactifs pour développer les compétences Life Skills de manière ludique</p>
-                
-                <div class="mini-games-grid">
-                    <!-- Mini-jeu SANTÉ -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/sante-bien-etre')">
-                        <div class="game-icon">🏥</div>
-                        <h4>Mini Jeu SANTÉ</h4>
-                        <p class="game-theme">Thématique : Santé & Bien-être</p>
-                        <p class="game-description">Découvre et développe tes compétences en matière de santé</p>
-                        <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+            <div class="section"><h2>🎮 Mini Jeux</h2>
+<p>Choisis un thème. 20 questions rapides, fun et parfois un peu “plot twist”, pour avancer sans te prendre la tête.</p>
 
-                    <!-- Mini-jeu BUDGET -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/budget')">
-                        <div class="game-icon">💰</div>
-                        <h4>Mini Jeu BUDGET</h4>
-                        <p class="game-theme">Thématique : Budget & Finances</p>
-                        <p class="game-description">Apprends à gérer ton budget et tes finances personnelles</p>
-                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+<div class="mini-games-grid">
+  <div class="game-card" onclick="miniGameStart('sante')">
+    <div class="game-icon">🏥</div>
+    <h4>SANTÉ</h4>
+    <p class="game-theme">Santé & Bien-être</p>
+    <p class="game-description">Énergie, stress, sommeil, add-ons du quotidien.</p>
+    <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu ENGAGEMENT -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/engagement-boost')">
-                        <div class="game-icon">🤝</div>
-                        <h4>Mini Jeu ENGAGEMENT</h4>
-                        <p class="game-theme">Thématique : Engagement & Valorisation</p>
-                        <p class="game-description">Développe tes capacités d'engagement et d'affirmation de soi</p>
-                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('budget')">
+    <div class="game-icon">💰</div>
+    <h4>BUDGET</h4>
+    <p class="game-theme">Budget & Finances</p>
+    <p class="game-description">Gérer, arbitrer, éviter les pièges, se protéger.</p>
+    <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu LOGEMENT -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/appart-crush')">
-                        <div class="game-icon">🏠</div>
-                        <h4>Mini Jeu LOGEMENT</h4>
-                        <p class="game-theme">Thématique : Logement & Habitat</p>
-                        <p class="game-description">Trouve et gère ton logement comme un pro</p>
-                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('engagement')">
+    <div class="game-icon">🤝</div>
+    <h4>ENGAGEMENT</h4>
+    <p class="game-theme">Engagement & Valorisation</p>
+    <p class="game-description">S’oser, dire oui/non, se faire une place.</p>
+    <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu MOBILITÉ -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mobilite')">
-                        <div class="game-icon">🚗</div>
-                        <h4>Mini Jeu MOBILITÉ</h4>
-                        <p class="game-theme">Thématique : Mobilité & Transports</p>
-                        <p class="game-description">Optimise tes déplacements et développe ton autonomie</p>
-                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('logement')">
+    <div class="game-icon">🏠</div>
+    <h4>LOGEMENT</h4>
+    <p class="game-theme">Logement & Habitat</p>
+    <p class="game-description">Dossier, visite, arnaques, colocation, droits.</p>
+    <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu MOBILITÉ INTERNATIONALE -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mobinter')">
-                        <div class="game-icon">✈️</div>
-                        <h4>Mini Jeu MOBILITÉ INTERNATIONALE</h4>
-                        <p class="game-theme">Thématique : Mobilité & Europe</p>
-                        <p class="game-description">Prépare ton projet de mobilité à l'international</p>
-                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('mobilite')">
+    <div class="game-icon">🚗</div>
+    <h4>MOBILITÉ</h4>
+    <p class="game-theme">Mobilité & Transports</p>
+    <p class="game-description">Autonomie, solutions, plan B, budget transport.</p>
+    <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu ORIENTATION PROFESSIONNELLE -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/la-boussole-pro')">
-                        <div class="game-icon">🧭</div>
-                        <h4>Mini Jeu LA BOUSSOLE PRO</h4>
-                        <p class="game-theme">Thématique : Orientation Professionnelle</p>
-                        <p class="game-description">Découvre ton projet professionnel et trace ta route</p>
-                        <div class="game-badge game-badge-personnalite">🎯 Axe : Personnalité</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('mobinter')">
+    <div class="game-icon">✈️</div>
+    <h4>MOBILITÉ INTERNATIONALE</h4>
+    <p class="game-theme">Europe & Expériences</p>
+    <p class="game-description">Oser partir, se préparer, gérer l’imprévu.</p>
+    <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu RECRUTEMENT PRO -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/recrutement-pro')">
-                        <div class="game-icon">💼</div>
-                        <h4>Mini Jeu RECRUTEMENT PRO</h4>
-                        <p class="game-theme">Thématique : Recrutement & Entretien</p>
-                        <p class="game-description">Prépare-toi aux entretiens d'embauche et décroche ton job</p>
-                        <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('boussolepro')">
+    <div class="game-icon">🧭</div>
+    <h4>LA BOUSSOLE PRO</h4>
+    <p class="game-theme">Orientation</p>
+    <p class="game-description">Trouver une direction, tester, choisir, ajuster.</p>
+    <div class="game-badge game-badge-personnalite">🎯 Axe : Personnalité</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu LOISIRS -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/mj-loisirs-atouts-pro')">
-                        <div class="game-icon">🎨</div>
-                        <h4>Mini Jeu LOISIRS</h4>
-                        <p class="game-theme">Thématique : Loisirs & Bien-être</p>
-                        <p class="game-description">Développe tes passions et trouve l'équilibre vie pro/perso</p>
-                        <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('recrutementpro')">
+    <div class="game-icon">💼</div>
+    <h4>RECRUTEMENT PRO</h4>
+    <p class="game-theme">Entretien & Candidature</p>
+    <p class="game-description">CV, pitch, tests, codes implicites, relances.</p>
+    <div class="game-badge game-badge-valorisation">🎯 Axe : Valorisation</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu NUMÉRIQUE -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/numerique')">
-                        <div class="game-icon">💻</div>
-                        <h4>Mini Jeu NUMÉRIQUE</h4>
-                        <p class="game-theme">Thématique : Compétences Numériques</p>
-                        <p class="game-description">Développe tes compétences digitales et ta culture numérique</p>
-                        <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
+  <div class="game-card" onclick="miniGameStart('loisirs')">
+    <div class="game-icon">🎨</div>
+    <h4>LOISIRS</h4>
+    <p class="game-theme">Loisirs & Équilibre</p>
+    <p class="game-description">Récupérer, kiffer, se reconstruire, socialiser.</p>
+    <div class="game-badge game-badge-equilibre">🎯 Axe : Équilibre</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
 
-                    <!-- Mini-jeu FORMATION -->
-                    <div class="game-card" onclick="openGame('https://mlpb-tools.my.canva.site/formation')">
-                        <div class="game-icon">🎓</div>
-                        <h4>Mini Jeu FORMATION</h4>
-                        <p class="game-theme">Thématique : Formation & Apprentissage</p>
-                        <p class="game-description">Construis ton parcours de formation et développe tes compétences</p>
-                        <div class="game-badge game-badge-personnalite">🎯 Axe : Personnalité</div>
-                        <button class="game-button">▶ Jouer maintenant</button>
-                    </div>
-                    
-                    <div class="add-game-card">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;">➕</div>
-                        <h4>Ajouter un mini-jeu</h4>
-                        <p>Copie le code d'une carte et remplace l'URL</p>
-                    </div>
-                </div>
-            </div>
+  <div class="game-card" onclick="miniGameStart('numerique')">
+    <div class="game-icon">💻</div>
+    <h4>NUMÉRIQUE</h4>
+    <p class="game-theme">Compétences digitales</p>
+    <p class="game-description">Smartphone, mails, démarches, sécurité, IA.</p>
+    <div class="game-badge game-badge-ressources">🎯 Axe : Ressources</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
+
+  <div class="game-card" onclick="miniGameStart('formation')">
+    <div class="game-icon">🎓</div>
+    <h4>FORMATION</h4>
+    <p class="game-theme">Apprentissage & parcours</p>
+    <p class="game-description">Choisir, s’organiser, tenir, rebondir.</p>
+    <div class="game-badge game-badge-personnalite">🎯 Axe : Personnalité</div>
+    <button class="game-button">▶ Jouer</button>
+  </div>
+</div>
+
+<!-- Bouton optionnel pour garder tes Canva en “version complète” -->
+<div class="info-box" style="margin-top: 1.5rem;">
+  <strong>Option :</strong> tu peux garder tes versions Canva en lien “ressource” (en bas des résultats).
+</div>
+
 
             <div class="section">
                 <h2>🚀 Pour aller plus loin</h2>
